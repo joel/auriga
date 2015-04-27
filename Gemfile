@@ -63,6 +63,9 @@ gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-fontawesome'
 gem 'twitter-bootswatch-rails-helpers'
 
+# Cause of this bug https://github.com/slim-template/slim/issues/609 need wait for less-rails version > 2.7.0
+gem 'less-rails', git: 'https://github.com/metaskills/less-rails.git'
+
 gem 'mongoid'
 
 # gem 'timezone'
@@ -71,7 +74,7 @@ gem 'mongoid'
 gem 'bower-rails' #, '~> 0.8.3'
 
 group :development do
-  gem 'quiet_assets'
+  # gem 'quiet_assets'
   # gem 'rb-fchange', require: false
   # gem 'rb-fsevent', require: false
   # gem 'rb-inotify', require: false
@@ -80,9 +83,8 @@ end
 
 group :production do
   # gem 'puma'
-  gem 'rails_12factor'
+  # gem 'rails_12factor'
 end
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
