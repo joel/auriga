@@ -34,7 +34,20 @@ gem 'jquery-rails'
 gem 'slim-rails'
 # gem 'simple_form'
 # gem 'slim'
-gem 'cells'
+# gem 'cells'
+
+# Trailblazer 
+# gem 'virtus'
+# gem 'representable'
+gem 'reform'
+gem 'trailblazer'
+gem 'cells', '4.0.0.beta2'
+gem 'simple_form'
+# gem 'haml-rails'
+
+# gem 'cells-haml', git: 'https://github.com/trailblazer/cells-haml'
+
+
 
 # gem 'slim-rails'
 # gem 'simple_form'
@@ -68,13 +81,15 @@ gem 'less-rails', git: 'https://github.com/metaskills/less-rails.git'
 
 gem 'mongoid'
 
+gem 'tenancy'
+
 # gem 'timezone'
 # gem 'i18n-timezones'
 
 gem 'bower-rails' #, '~> 0.8.3'
 
 group :development do
-  # gem 'quiet_assets'
+  gem 'quiet_assets'
   # gem 'rb-fchange', require: false
   # gem 'rb-fsevent', require: false
   # gem 'rb-inotify', require: false

@@ -24,11 +24,11 @@ RSpec.describe VaultsController, type: :controller do
   # Vault. As you add validations to Vault, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { subdomain: 'foo' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { subdomain: nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -36,51 +36,8 @@ RSpec.describe VaultsController, type: :controller do
   # VaultsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all vaults as @vaults" do
-      vault = Vault.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:vaults)).to eq([vault])
-    end
-  end
-
-  describe "GET #show" do
-    it "assigns the requested vault as @vault" do
-      vault = Vault.create! valid_attributes
-      get :show, {:id => vault.to_param}, valid_session
-      expect(assigns(:vault)).to eq(vault)
-    end
-  end
-
-  describe "GET #new" do
-    it "assigns a new vault as @vault" do
-      get :new, {}, valid_session
-      expect(assigns(:vault)).to be_a_new(Vault)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested vault as @vault" do
-      vault = Vault.create! valid_attributes
-      get :edit, {:id => vault.to_param}, valid_session
-      expect(assigns(:vault)).to eq(vault)
-    end
-  end
-
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Vault" do
-        expect {
-          post :create, {:vault => valid_attributes}, valid_session
-        }.to change(Vault, :count).by(1)
-      end
-
-      it "assigns a newly created vault as @vault" do
-        post :create, {:vault => valid_attributes}, valid_session
-        expect(assigns(:vault)).to be_a(Vault)
-        expect(assigns(:vault)).to be_persisted
-      end
-
       it "redirects to the created vault" do
         post :create, {:vault => valid_attributes}, valid_session
         expect(response).to redirect_to(Vault.last)
@@ -88,71 +45,10 @@ RSpec.describe VaultsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved vault as @vault" do
-        post :create, {:vault => invalid_attributes}, valid_session
-        expect(assigns(:vault)).to be_a_new(Vault)
-      end
-
       it "re-renders the 'new' template" do
         post :create, {:vault => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested vault" do
-        vault = Vault.create! valid_attributes
-        put :update, {:id => vault.to_param, :vault => new_attributes}, valid_session
-        vault.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested vault as @vault" do
-        vault = Vault.create! valid_attributes
-        put :update, {:id => vault.to_param, :vault => valid_attributes}, valid_session
-        expect(assigns(:vault)).to eq(vault)
-      end
-
-      it "redirects to the vault" do
-        vault = Vault.create! valid_attributes
-        put :update, {:id => vault.to_param, :vault => valid_attributes}, valid_session
-        expect(response).to redirect_to(vault)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the vault as @vault" do
-        vault = Vault.create! valid_attributes
-        put :update, {:id => vault.to_param, :vault => invalid_attributes}, valid_session
-        expect(assigns(:vault)).to eq(vault)
-      end
-
-      it "re-renders the 'edit' template" do
-        vault = Vault.create! valid_attributes
-        put :update, {:id => vault.to_param, :vault => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested vault" do
-      vault = Vault.create! valid_attributes
-      expect {
-        delete :destroy, {:id => vault.to_param}, valid_session
-      }.to change(Vault, :count).by(-1)
-    end
-
-    it "redirects to the vaults list" do
-      vault = Vault.create! valid_attributes
-      delete :destroy, {:id => vault.to_param}, valid_session
-      expect(response).to redirect_to(vaults_url)
     end
   end
 

@@ -1,8 +1,6 @@
 class VaultsController < ApplicationController
   before_action :set_vault, only: [:show, :edit, :update, :destroy]
 
-  # layout 'flatly'
-
   # GET /vaults
   def index
     @vaults = Vault.all
@@ -14,37 +12,37 @@ class VaultsController < ApplicationController
 
   # GET /vaults/new
   def new
-    @vault = Vault.new
+    form Vault::Create
   end
 
   # GET /vaults/1/edit
   def edit
+    form Vault::Update
   end
 
   # POST /vaults
   def create
-    @vault = Vault.new(vault_params)
-
-    if @vault.save
-      redirect_to @vault, notice: 'Vault was successfully created.'
-    else
-      render :new
+    run Vault::Create do |operation|
+      return redirect_to operation.model
     end
+
+    render action: :new
   end
 
   # PATCH/PUT /vaults/1
   def update
-    if @vault.update(vault_params)
-      redirect_to @vault, notice: 'Vault was successfully updated.'
-    else
-      render :edit
+    run Vault::Update do |operation|
+      return redirect_to operation.model
     end
+
+    render action: :edit
   end
 
   # DELETE /vaults/1
   def destroy
-    @vault.destroy
-    redirect_to vaults_url, notice: 'Vault was successfully destroyed.'
+    run Vault::Destroy do
+      redirect_to vaults_url, notice: 'Vault was successfully destroyed.'
+    end
   end
 
   private

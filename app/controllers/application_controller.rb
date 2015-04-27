@@ -29,5 +29,7 @@ class ApplicationController < ActionController::Base
     nil
   end
   helper_method :current_user
+  
+  include Trailblazer::Operation::Controller
 
 end
