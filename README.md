@@ -2,13 +2,13 @@
 
 [![Code Climate](https://codeclimate.com/github/joel/auriga.png)](https://codeclimate.com/github/joel/auriga)
 
-[![Dependency Status](https://gemnasium.com/joel/auriga.png)](https://gemnasium.com/joel/auriga)
+[![Dependency Status](https://gemnasium.com/joel/auriga.svg)](https://gemnasium.com/joel/auriga)
 
 [![Build Status](https://travis-ci.org/joel/auriga.png?branch=master)](https://travis-ci.org/joel/auriga) (Travis CI)
 
 [![Coverage Status](https://coveralls.io/repos/joel/auriga/badge.png)](https://coveralls.io/r/joel/auriga)
 
-Auriga is a simple rails app that allows you to share passwords, notes with your team like [Roswell](https://github.com/blahed/roswell) or like another awesome project [Swordfish](https://github.com/github/swordfish), [Last Pass](https://lastpass.com/how-it-works), and so on...
+Auriga is a simple rails app allows to store and share passwords, notes with your team like [Roswell](https://github.com/blahed/roswell) or like another awesome project [Swordfish](https://github.com/github/swordfish), [Last Pass](https://lastpass.com/how-it-works), and so on...
 
 You can play with [demo](http://demo.vaultypass.com/) demo@example.com / secret
 
@@ -26,7 +26,7 @@ Not extremely secure, but more secure than a shared google spreadsheet. The `pro
 
 ## How can it be more secure?
 
-Really, we just needed something better than a spreadsheet.
+Actually we just needed something better than a spreadsheet.
 
 ## Installing Auriga
 
