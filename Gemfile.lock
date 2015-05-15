@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/demental/onesky-rails.git
+  revision: c964b31abb05b9b8d23bd181959f642dd2499f33
+  branch: working
+  specs:
+    onesky-rails (1.0.0)
+      i18n (>= 0.5.0)
+      onesky-ruby (~> 1.0.0)
+
+GIT
   remote: https://github.com/metaskills/less-rails.git
   revision: cf4f5b1cb4ba4aa019fa50e522fd752f9e77792a
   specs:
@@ -124,9 +133,6 @@ GEM
     netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    onesky-rails (1.0.0)
-      i18n (>= 0.5.0)
-      onesky-ruby (~> 1.0.0)
     onesky-ruby (1.0.0)
       rest-client (~> 1.7.2)
     optionable (0.2.0)
@@ -290,7 +296,7 @@ DEPENDENCIES
   jquery-rails
   less-rails!
   mongoid
-  onesky-rails
+  onesky-rails!
   pry-byebug
   puma
   quiet_assets

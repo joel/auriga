@@ -57,7 +57,7 @@ group :development, :test do
   gem 'spring'
   gem 'coveralls', require: false
   gem 'rspec-rails'
-  gem 'onesky-rails'
+  gem 'onesky-rails', github: 'demental/onesky-rails', branch: 'working'
 end
 
 group :test do
