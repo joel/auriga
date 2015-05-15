@@ -1,0 +1,15 @@
+language: ruby
+gemfile:
+  - gemfiles/Gemfile.rails-head
+matrix:
+  allow_failures:
+    - gemfile: gemfiles/Gemfile.rails-head
+  include:
+    - gemfile: Gemfile
+      rvm: 2.2.2
+services:
+  - mongodb
+rvm:
+  - 2.2.2
+  - ruby-head
+script: bundle exec rspec
