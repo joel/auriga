@@ -11,4 +11,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( flatly.js flatly.css
-                                                  cosmo.js cosmo.css )
+                                                  cosmo.js cosmo.css
+                                                  cerulean.js cerulean.css )

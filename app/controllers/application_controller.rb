@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def themes
-    @themes ||= %w[cyborg readable cosmo flatly simplex]
+    @themes ||= %w[cyborg readable cosmo flatly simplex cerulean]
   end
   helper_method :themes
 
@@ -29,7 +29,6 @@ class ApplicationController < ActionController::Base
     nil
   end
   helper_method :current_user
-  
-  include Trailblazer::Operation::Controller
 
+  include Trailblazer::Operation::Controller
 end
