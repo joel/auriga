@@ -29,6 +29,9 @@ module Auriga
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
+    # https://github.com/scottvrosenthal/twitter-bootswatch-rails#default-generators-to-use-less-rails-gem
+    config.app_generators.stylesheet_engine :less
+
     # http://dev.af83.com/2013/01/02/managing-rails-assets-with-bower.html
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
 
