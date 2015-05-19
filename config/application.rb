@@ -29,6 +29,9 @@ module Auriga
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
+    # http://dev.af83.com/2013/01/02/managing-rails-assets-with-bower.html
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+
     config.generators do |g|
 
       g.test_framework :rspec #, fixture: true
