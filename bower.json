@@ -1,0 +1,16 @@
+{
+  "name": "auriga",
+  "version": "0.0.1",
+  "homepage": "https://github.com/joel/auriga",
+  "authors": [
+    "Joel AZEMAR <joel.azemar@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
