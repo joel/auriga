@@ -1,20 +1,28 @@
+---
 en:
-  activerecord:
-    models:
-      vault: 'Vault'
-    attributes:
-      vault:
-        subdomain: 'Subdomain'
   simple_form:
+    hints:
+      vault:
+        subdomain: Subdomain
+    helpers:
+      submit:
+        vault:
+          create: "Add your subdomain"
+          update: "Save Changes"
     labels:
       vault:
-        subdomain: 'Subdomain'
-    # hints:
-    #   vault:
-    #     subdomain: 'Subdomain'
+        subdomain: Subdomain
     placeholders:
       vault:
-        subdomain: 'Subdomain'
+        subdomain: Subdomain
+  activerecord:
+    models:
+      vault: Vault
+    attributes:
+      vault:
+        subdomain: Subdomain
+        created_at: "Created at"
+        updated_at: "Updated at"
   helpers:
     submit:
       vault:

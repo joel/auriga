@@ -1,0 +1,6 @@
+---
+fr:
+  hello: "Bonjour le monde"
+  helpers:
+    links:
+      theme: "Thémes : %{theme}"

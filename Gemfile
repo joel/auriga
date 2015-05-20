@@ -15,6 +15,11 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Helpers
+# gem 'i18n_helper', path: '../../Gems/i18n_helper'
+gem 'i18n_helper', '>= 0.0.3'
+
+# Views
 gem 'slim-rails'
 
 # Trailblazer stuffs
@@ -23,6 +28,7 @@ gem 'trailblazer'
 gem 'cells', '4.0.0.beta2'
 gem 'simple_form'
 
+# Configuration
 gem 'figaro'
 
 # Boostrap
@@ -32,8 +38,11 @@ gem 'twitter-bootswatch-rails-helpers'
 
 # Cause of this bug https://github.com/slim-template/slim/issues/609 need wait for less-rails version > 2.7.0
 gem 'less-rails', git: 'https://github.com/metaskills/less-rails.git'
+
+# Backend storage
 gem 'mongoid'
 
+# Js dependencies
 gem 'bower-rails'
 
 group :production do

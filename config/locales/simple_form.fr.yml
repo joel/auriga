@@ -1,0 +1,34 @@
+---
+fr:
+  simple_form:
+    ? "yes"
+    : Oui
+    ? "no"
+    : Non
+    required:
+      text: Requis
+      mark: "*"
+    error_notification:
+      default_message: "Voir les problèmes suivant:"
+    labels:
+      defaults:
+        remember_me: "Se souvenir de moi"
+        name: Nom
+        current_password: "Mot de passe actuel"
+        password_confirmation: "confirmation mot de passe"
+        password: "mot de passe"
+        email: email
+        link: lien
+        login: S'identifier
+        content: Contenu
+      user:
+        new:
+          password_confirmation: "Confirmer le mot de passe"
+    hints:
+      defaults:
+        username: Identifiant
+        password: "Pas de caractères spéciaux"
+    helpers:
+      submit:
+        create: "Ajouter %{model}"
+        update: Sauver

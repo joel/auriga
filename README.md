@@ -10,9 +10,9 @@
 
 Auriga is a simple rails app allows to store and share passwords, notes with your team like [Roswell](https://github.com/blahed/roswell) or like another awesome project [Swordfish](https://github.com/github/swordfish), [Last Pass](https://lastpass.com/how-it-works), and so on...
 
-You can play with [demo](http://demo.vaultypass.com/) demo@example.com / secret
+You can play with [demo](http://demo.passle.eu/) demo@example.com / secret
 
-or simply use it on [vaultypass.com](http://www.vaultypass.com/)
+or simply use it on [passle.eu](http://www.passle.eu/)
 
 <img src="https://cloud.githubusercontent.com/assets/5789/4032621/f25ffa20-2c71-11e4-82ee-2680f4afaa54.png" alt="ScreenShot" style="height: 400px; width: 600px;"/>
 
