@@ -1,6 +1,7 @@
 ---
 en:
-  hello: "Hello world"
+  app:
+    name: Auriga
   helpers:
     links:
       theme: "Themes : %{theme}"

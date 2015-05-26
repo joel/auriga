@@ -18,6 +18,7 @@ gem 'jquery-rails'
 # Helpers
 # gem 'i18n_helper', path: '../../Gems/i18n_helper'
 gem 'i18n_helper', '>= 0.0.3'
+gem 'rails-i18n'
 
 # Views
 gem 'slim-rails'
@@ -32,9 +33,9 @@ gem 'simple_form'
 gem 'figaro'
 
 # Boostrap
-gem 'twitter-bootswatch-rails'
-gem 'twitter-bootswatch-rails-fontawesome'
-gem 'twitter-bootswatch-rails-helpers'
+gem 'twitter-bootswatch-rails', '3.2.0.0'
+gem 'twitter-bootswatch-rails-fontawesome', '4.0.3.0'
+gem 'twitter-bootswatch-rails-helpers', '3.2.0.0'
 
 # Cause of this bug https://github.com/slim-template/slim/issues/609 need wait for less-rails version > 2.7.0
 gem 'less-rails', git: 'https://github.com/metaskills/less-rails.git'

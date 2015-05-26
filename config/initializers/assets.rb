@@ -10,6 +10,9 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile += %w( flatly.js flatly.css
-                                                  cosmo.js cosmo.css
+Rails.application.config.assets.precompile += %w( readable.js readable.css
+                                                  cyborg.js   cyborg.css
+                                                  simplex.js  simplex.css
+                                                  flatly.js   flatly.css
+                                                  cosmo.js    cosmo.css
                                                   cerulean.js cerulean.css )

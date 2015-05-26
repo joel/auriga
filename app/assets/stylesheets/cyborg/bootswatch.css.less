@@ -1,31 +1,16 @@
-@import "cosmo/base";
+@import "cyborg/base";
 
-// Cosmo 3.2.0
+// Cyborg 3.2.0
 // Bootswatch
 // -----------------------------------------------------
 
-@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+@import url("//fonts.googleapis.com/css?family=Roboto:400,700");
 
 // Navbar =====================================================================
-
-.navbar {
-
-  &-inverse {
-
-    .badge {
-      background-color: #fff;
-      color: @brand-primary;
-    }
-  }
-}
 
 // Buttons ====================================================================
 
 // Typography =================================================================
-
-body {
-  -webkit-font-smoothing: antialiased;
-}
 
 .text-primary,
 .text-primary:hover {
@@ -56,25 +41,23 @@ body {
 
 table,
 .table {
+  color: #fff;
 
   a:not(.btn) {
+    color: #fff;
     text-decoration: underline;
   }
 
-  .success,
-  .warning,
-  .danger,
-  .info {
-    color: #fff;
-
-    a {
-      color: #fff;
-    }
+  .text-muted {
+    color: @text-muted;
   }
 }
 
-// Forms ======================================================================
+.table-responsive > .table {
+  background-color: @table-bg;
+}
 
+// Forms ======================================================================
 
 .has-warning {
   .help-block,
@@ -86,7 +69,7 @@ table,
   .form-control,
   .form-control:focus,
   .input-group-addon {
-    border: 1px solid @brand-warning;
+    border-color: @brand-warning;
   }
 }
 
@@ -100,7 +83,7 @@ table,
   .form-control,
   .form-control:focus,
   .input-group-addon {
-    border: 1px solid @brand-danger;
+    border-color: @brand-danger;
   }
 }
 
@@ -114,86 +97,70 @@ table,
   .form-control,
   .form-control:focus,
   .input-group-addon {
-    border: 1px solid @brand-success;
+    border-color: @brand-success;
   }
+}
+
+legend {
+  color: #fff;
+}
+
+.input-group-addon {
+  background-color: @btn-default-bg;
 }
 
 // Navs =======================================================================
 
-.nav-pills {
+.nav-tabs,
+.nav-pills,
+.breadcrumb,
+.pager {
 
-  & > li > a {
-    border-radius: 0;
-  }
-}
-
-.dropdown-menu {
-
-  & > li > a:hover,
-  & > li > a:focus {
-    background-image: none;
+  a {
+    color: #fff;
   }
 }
 
 // Indicators =================================================================
 
+.alert {
+
+  .alert-link,
+  a {
+    color: @alert-warning-text;
+    text-decoration: underline;
+  }
+
+  .close {
+    text-decoration: none;
+  }
+}
+
 .close {
+  color: #fff;
   text-decoration: none;
-  text-shadow: none;
   opacity: 0.4;
 
   &:hover,
   &:focus {
+    color: #fff;
     opacity: 1;
   }
 }
 
-.alert {
-  border: none;
-
-  .alert-link {
-    text-decoration: underline;
-    color: #fff;
-  }
-}
-
-.label {
-  border-radius: 0;
-}
-
 // Progress bars ==============================================================
-
-.progress {
-  height: 8px;
-  .box-shadow(none);
-  .progress-bar {
-    font-size: 8px;
-    line-height: 8px;
-  }
-}
 
 // Containers =================================================================
 
-.panel {
-  &-heading,
-  &-footer {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-  }
-
-  &-default {
-    .close {
-      color: @text-color;
-    }
-  }
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: @thumbnail-border;
 }
 
-.modal {
-  .close {
-    color: @text-color;
-  }
-}
+.jumbotron {
 
-.popover {
-  color: @text-color;
+  h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+  }
 }
