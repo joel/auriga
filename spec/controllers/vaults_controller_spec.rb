@@ -18,7 +18,19 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe VaultsController, type: :controller do
+RSpec.describe VaultsController, type: :controller, skip: true do
+
+  let(:user)  { create(:user) }
+  let(:vault) { create(:vault) }
+
+  before do
+
+    # binding.pry
+    # Mongoid::Multitenancy.with_tenant(nil) do
+    sign_in user
+  # end
+    # host! "me.example.com"
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Vault. As you add validations to Vault, be sure to
@@ -30,6 +42,10 @@ RSpec.describe VaultsController, type: :controller do
   let(:invalid_attributes) {
     { subdomain: nil }
   }
+
+  before(:each) do
+    @request.host = "#{valid_attributes[:subdomain]}.example.com"
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

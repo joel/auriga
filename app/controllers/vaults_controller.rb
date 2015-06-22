@@ -1,4 +1,6 @@
 class VaultsController < ApplicationController
+  skip_around_filter :scope_current_vault, only: [:new]
+  
   before_action :set_vault, only: [:show, :edit, :update, :destroy]
 
   # GET /vaults
@@ -7,8 +9,7 @@ class VaultsController < ApplicationController
   end
 
   # GET /vaults/1
-  def show
-  end
+  def show() end
 
   # GET /vaults/new
   def new

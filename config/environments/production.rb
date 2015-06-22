@@ -73,6 +73,8 @@ Rails.application.configure do
     authentication: :plain
   }
   config.action_mailer.delivery_method = :smtp
+  # Here we need to pass the current subdomain
+  config.action_mailer.default_url_options = { host: 'passle.eu' }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -83,4 +85,6 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.devise.password_length = 8..72
 end

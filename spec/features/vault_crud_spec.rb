@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-feature 'create vault', type: :feature do
+feature 'create vault', type: :feature, skip: true do
   scenario 'regular way' do
     visit new_vault_path
     # save_and_open_page
@@ -12,7 +12,7 @@ feature 'create vault', type: :feature do
   end
 end
 
-feature 'update vault', type: :feature do
+feature 'update vault', type: :feature, skip: true do
   given(:vault) { Vault.create!({ subdomain: 'foo' }) }
 
   scenario 'regular way' do
