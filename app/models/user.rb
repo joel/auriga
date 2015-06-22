@@ -52,5 +52,7 @@ class User < BasicModel
   # validates_associated :vault
   accepts_nested_attributes_for :vault
 
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+
   index({ email: 1 }, { unique: true, background: true })
 end

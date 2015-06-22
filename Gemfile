@@ -22,12 +22,12 @@ gem 'rails-i18n'
 
 # Views
 gem 'slim-rails'
-
-# Trailblazer stuffs
-gem 'reform'
-gem 'trailblazer'
-gem 'cells', '4.0.0.beta2'
 gem 'simple_form'
+
+# Model / Busines logic.
+# gem 'virtus'
+# gem 'wisper'
+gem 'interactor'
 
 # Configuration
 gem 'figaro'

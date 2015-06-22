@@ -71,11 +71,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    cells (4.0.0.beta2)
-      actionpack (>= 3.2)
-      disposable (~> 0.0.8)
-      tilt (>= 1.4, < 3)
-      uber (~> 0.0.9)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -105,9 +100,6 @@ GEM
     devise-i18n (0.12.0)
     devise-i18n-views (0.3.4)
     diff-lcs (1.2.5)
-    disposable (0.0.9)
-      representable (~> 2.0)
-      uber
     docile (1.1.5)
     erubis (2.7.0)
     execjs (2.5.2)
@@ -129,6 +121,7 @@ GEM
     i18n_helper (0.0.3)
       i18n-language-translations (~> 0.0)
       rails (~> 4.1)
+    interactor (3.1.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -158,7 +151,6 @@ GEM
       bson (~> 2.2)
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
-    multi_json (1.11.0)
     netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -217,15 +209,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     ref (1.0.5)
-    reform (1.2.6)
-      activemodel
-      disposable (~> 0.0.5)
-      representable (~> 2.1.0)
-      uber (~> 0.0.11)
-    representable (2.1.5)
-      multi_json
-      nokogiri
-      uber (~> 0.0.7)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rest-client (1.7.3)
@@ -290,11 +273,6 @@ GEM
     thread_safe (0.3.5)
     tilt (1.4.1)
     tins (1.5.1)
-    trailblazer (0.2.2)
-      actionpack (>= 3.0.0)
-      reform (~> 1.2.0)
-      representable (>= 2.1.1, < 2.2.0)
-      uber (>= 0.0.10)
     twitter-bootswatch-rails (3.2.0.0)
       execjs (>= 1.4.0)
       less-rails (>= 2.3)
@@ -307,7 +285,6 @@ GEM
       twitter-bootswatch-rails (~> 3.2.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uber (0.0.13)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -328,7 +305,6 @@ DEPENDENCIES
   bower-rails
   byebug
   capybara
-  cells (= 4.0.0.beta2)
   coffee-rails (~> 4.1.0)
   coveralls
   database_cleaner
@@ -339,6 +315,7 @@ DEPENDENCIES
   faker
   figaro
   i18n_helper (>= 0.0.3)
+  interactor
   jquery-rails
   launchy
   less-rails!
@@ -352,14 +329,12 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails-i18n
   rails_12factor
-  reform
   rspec-rails
   sass-rails (~> 5.0)
   simple_form
   slim-rails
   spring
   therubyracer
-  trailblazer
   twitter-bootswatch-rails (= 3.2.0.0)
   twitter-bootswatch-rails-fontawesome (= 4.0.3.0)
   twitter-bootswatch-rails-helpers (= 3.2.0.0)

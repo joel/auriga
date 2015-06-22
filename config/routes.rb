@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   resources :vaults
   resources :users
-  
+
+  constraints(Subdomain) do
+    match '/' => 'goldbricks#index', via: [:get]
+    resources :goldbricks
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

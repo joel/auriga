@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 describe User do
-  let(:vault_1) { create_vault }
-  let(:vault_2) { create_vault }
-  let(:user_1)  { create_user }
-  let(:user_2)  { create_user }
-  let(:user_3)  { create_user }
+  let(:vault_1) { create(:vault) }
+  let(:vault_2) { create(:vault) }
+  let(:user_1)  { create(:user) }
+  let(:user_2)  { create(:user) }
+  let(:user_3)  { create(:user) }
 
   before do
-    assign(vault_1, user_1)
-    assign(vault_2, user_2)
-    assign(nil, user_3)
+    assign_to_user(vault_1, user_1)
+    assign_to_user(vault_2, user_2)
+    assign_to_user(nil, user_3)
   end
 
   specify do

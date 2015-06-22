@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Vault, type: :model do
-
-  # response, operation = Vault::Create.run(attributes)
-  let(:vault) do
-    Vault::Create.run(attributes)
-  end
+  let(:vault) { Vault.new(attributes[:vault]) }
 
   describe 'validation' do
     context 'with valid parameters' do
@@ -13,9 +9,7 @@ RSpec.describe Vault, type: :model do
         { vault: attributes_for(:vault) }
       end
       specify do
-        response, operation = vault
-        expect(response).to be_truthy
-        expect(operation.model).to be_persisted
+        expect(vault).to be_valid
       end
     end
     context 'with invalid parameters' do
@@ -23,10 +17,8 @@ RSpec.describe Vault, type: :model do
         { vault: { subdomain: nil }}
       end
       specify do
-        response, operation = vault
-        expect(response).to be_falsey
-        expect(operation.model).to_not be_persisted
-        expect(operation.contract.errors.to_s).to eql("{:subdomain=>[\"can't be blank\"]}")
+        expect(vault).to_not be_valid
+        expect(vault.errors.full_messages).to eql(["Subdomain can't be blank"])
       end
     end
   end

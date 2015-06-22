@@ -58,8 +58,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_theme
 
-  include Trailblazer::Operation::Controller
-
   private
 
   # def after_sign_up_path_for resource

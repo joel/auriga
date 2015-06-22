@@ -1,49 +1,48 @@
 class VaultsController < ApplicationController
   skip_around_filter :scope_current_vault, only: [:new]
-  
+
   before_action :set_vault, only: [:show, :edit, :update, :destroy]
 
-  # GET /vaults
-  def index
-    @vaults = Vault.all
-  end
+  # # GET /vaults
+  # def index
+  #   @vaults = Vault.all
+  # end
 
   # GET /vaults/1
   def show() end
 
-  # GET /vaults/new
+  # GET /goldbricks/new
   def new
-    form Vault::Create
+    @vault = Vault.new
   end
 
-  # GET /vaults/1/edit
-  def edit
-    form Vault::Update
-  end
+  # GET /vaults/1
+  def edit() end
 
   # POST /vaults
   def create
-    run Vault::Create do |operation|
-      return redirect_to operation.model
-    end
+    @vault = Vault.new(vault_params)
 
-    render action: :new
+    if @vault.save
+      redirect_to @vault, notice: I18n.t('controllers.vault.create.success') # 'Vault was successfully created.'
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /vaults/1
   def update
-    run Vault::Update do |operation|
-      return redirect_to operation.model
+    if @vault.update(user_params)
+      redirect_to @vault, notice: I18n.t('controllers.vault.update.success') # 'Vault was successfully updated.'
+    else
+      render :edit
     end
-
-    render action: :edit
   end
 
   # DELETE /vaults/1
   def destroy
-    run Vault::Destroy do
-      redirect_to vaults_url, notice: 'Vault was successfully destroyed.'
-    end
+    @vault.destroy
+    redirect_to vaults_url, notice: I18n.t('controllers.vault.destroy.success') # 'Vault was successfully destroyed.'
   end
 
   private
