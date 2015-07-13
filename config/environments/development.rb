@@ -41,4 +41,6 @@ Rails.application.configure do
   config.action_view.raise_on_missing_translations = false
 
   config.devise.password_length = 3..72
+
+  Slim::Engine.set_default_options pretty: true, sort_attrs: false
 end

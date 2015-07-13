@@ -24,8 +24,6 @@ RSpec.describe VaultsController, type: :controller, skip: true do
   let(:vault) { create(:vault) }
 
   before do
-
-    # binding.pry
     # Mongoid::Multitenancy.with_tenant(nil) do
     sign_in user
   # end

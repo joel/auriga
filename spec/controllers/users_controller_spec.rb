@@ -23,7 +23,6 @@ describe UsersController, type: :controller do
   let(:vault) { user.vault }
 
   before do
-    # binding.pry
     # Mongoid::Multitenancy.with_tenant(nil) do
     sign_in user
   # end
@@ -57,7 +56,6 @@ describe UsersController, type: :controller do
 
   describe "GET show" do
     it "assigns the requested user as @user" do
-      # binding.pry
       # user = User.create! valid_create_attributes
       get :show, { id: user.to_param }, valid_session
       expect(assigns(:user)).to eq(user)

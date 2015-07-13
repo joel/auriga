@@ -41,6 +41,7 @@ class User < BasicModel
   field :theme,     type: String, default: 'readable'
   field :locale,    type: String, default: 'en'
   field :time_zone, type: String, default: 'Europe/Paris'
+  field :security,  type: Integer, default: 0 # (0..5)
 
   include Mongoid::Multitenancy::Document
   tenant :vault, optional: true, full_indexes: true

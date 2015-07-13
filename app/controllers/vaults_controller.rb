@@ -1,5 +1,5 @@
 class VaultsController < ApplicationController
-  skip_around_filter :scope_current_vault, only: [:new]
+  skip_around_action :scope_current_vault, only: [:new]
 
   before_action :set_vault, only: [:show, :edit, :update, :destroy]
 

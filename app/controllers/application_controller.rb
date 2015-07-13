@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery # with: :exception # http://goo.gl/6esHjG # raise ActionController::InvalidAuthenticityToken
 
-  before_filter :authenticate_user!
-  # before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
+  # before_action :configure_permitted_parameters, if: :devise_controller?
 
-  around_filter :scope_current_vault, unless: :devise_controller?
+  around_action :scope_current_vault, if: :scope_current_vault_is_required?
 
   protected
 
@@ -19,7 +19,6 @@ class ApplicationController < ActionController::Base
 
     vault = current_user.vault.tap do
       if current_user.vault.subdomain != request.subdomain
-        binding.pry
         raise Forbidden, I18n.t('exception.forbidden')
       end
     end
@@ -52,7 +51,6 @@ class ApplicationController < ActionController::Base
       end
     rescue Exception => e
       puts e.message
-      # binding.pry
     end
     theme
   end
@@ -61,16 +59,16 @@ class ApplicationController < ActionController::Base
   private
 
   # def after_sign_up_path_for resource
-  #   new_vault_path
+  #   # new_vault_path
+  #   root_path
   # end
 
   def after_sign_in_path_for resource
-    # binding.pry
-    unless resource.vault
-      new_vault_path
+    if resource.vault
+      goldbricks_path
     else
-      # binding.pry
-      users_url(subdomain: resource.vault.subdomain)
+      # users_url(subdomain: resource.vault.subdomain)
+      new_vault_path
     end
   end
 
@@ -79,4 +77,7 @@ class ApplicationController < ActionController::Base
     root_url(subdomain: 'www', protocol: :http)
   end
 
+  def scope_current_vault_is_required?
+    !devise_controller? # or params[:controller] == 'vault'
+  end
 end

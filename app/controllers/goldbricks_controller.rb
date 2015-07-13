@@ -52,8 +52,7 @@ class GoldbricksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_goldbrick
       @goldbrick = current_vault.goldbricks.find(params[:id])
-    rescue Mongoid::Errors::InvalidFind => e
-      binding.pry
+    rescue Mongoid::Errors::InvalidFind
     end
 
     # Only allow a trusted parameter "white list" through.

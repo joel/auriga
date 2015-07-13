@@ -32,10 +32,25 @@ RSpec.configure do |config|
   # You can disable this behaviour by removing the line below, and instead
   # explicitly tag your specs with their type, e.g.:
   #
-  #     RSpec.describe UsersController, :type => :controller do
+  #     RSpec.describe UsersController, type: :controller do
   #       # ...
   #     end
   #
+
+  # config.before(:each, type: :request) do
+  #   set_host "me.auriga.dev"
+  # end
+
+  # http://stackoverflow.com/questions/6536503/capybara-with-subdomains-default-host
+  config.before(:each, type: :feature) do
+    set_host "me.auriga.dev"
+  end
+
+  def set_host (host)
+    default_url_options[:host] = host
+    Capybara.app_host = "http://#{host}"
+  end
+
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!

@@ -11,8 +11,9 @@ describe 'sign in', type: :feature do
       fill_in 'user[email]', with: user.email
       fill_in 'user[password]', with: 'secret'
     end
+    expect(user.vault).to be_present
     click_button I18n.t('devise.sessions.new.sign_in') # Sign in
-    expect(current_path).to eq("/users")
+    expect(current_path).to eq("/goldbricks")
     # expect(current_path).to eq("http://me.example.com/users")
     # expect(current_path).to eq("http://#{user.vault.subdomain}.example.com#{users_url(subdomain: user.vault.subdomain)}")
   end

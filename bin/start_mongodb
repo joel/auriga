@@ -23,8 +23,8 @@ class StartMongodb
   end
 
   # clean
-  # mongo aquila_development --eval "db.dropDatabase()"
-  # mongo aquila_test --eval "db.dropDatabase()"
+  # mongo auriga_development --eval "db.dropDatabase()"
+  # mongo auriga_test --eval "db.dropDatabase()"
 
 end
 
