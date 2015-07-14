@@ -4,7 +4,7 @@ module Features
     def sign_up_and_confirm_as user, password='secret'
       sign_up_as user, password
       confirm_last_sign_up!
-      login_as user, password
+      sign_up_as user, password
     end
 
     def confirm_last_sign_up!
