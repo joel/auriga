@@ -18,7 +18,7 @@ describe 'sign in', type: :feature do
   end
 
   context 'without subdomain' do
-    let(:user) do |variable|
+    let(:user) do
       create(:user, :confirmed).tap do |user|
         expect(user.vault).to_not be_present
       end

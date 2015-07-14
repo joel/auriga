@@ -4,7 +4,7 @@ module Features
     include Warden::Test::Helpers
 
     def sign_in user=nil
-      @current_user ||= user || create(:user)
+      @current_user ||= user || create(:user, :confirmed)
       Warden.test_mode!
       login_as @current_user, scope: :user
     end
