@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-describe 'sign up and subdomain creattion', type: :feature do
+describe 'sign up and subdomain creation', type: :feature do
   let(:user) { create(:user) }
 
   it '...' do

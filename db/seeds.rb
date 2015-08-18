@@ -6,9 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+puts("Create subdomain me")
 vault = Vault.create!({ subdomain: 'me' })
 
 Mongoid::Multitenancy.with_tenant(vault) do
+  puts("Create user Joel AZEMAR joel@auriga.dev")
   user  = User.new({
     name:                  'Joel AZEMAR',
     email:                 'joel@auriga.dev',
@@ -17,8 +19,11 @@ Mongoid::Multitenancy.with_tenant(vault) do
   })
   user.vault = vault
   user.save
+
+  puts("Confirm user Joel AZEMAR")
   user.confirm!
 
+  puts("Create one entry on goldbrick (Github)")
   goldbrick = Goldbrick.new({
     name:     'Github',
     link:     'https://github.com',
@@ -29,3 +34,5 @@ Mongoid::Multitenancy.with_tenant(vault) do
   goldbrick.vault = vault
   goldbrick.save
 end
+
+puts("Done!")
