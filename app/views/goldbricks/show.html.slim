@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @goldbrick.name
+p
+  strong Link:
+  = @goldbrick.link
+p
+  strong Login:
+  = @goldbrick.login
+p
+  strong Password:
+  = @goldbrick.password
+p
+  strong Content:
+  = @goldbrick.content
+
+= link_to 'Edit', edit_goldbrick_path(@goldbrick)
+'|
+= link_to 'Back', goldbricks_path

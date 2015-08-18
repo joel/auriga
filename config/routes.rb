@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
   resources :vaults
+  resources :users
+
+  constraints(Subdomain) do
+    match '/' => 'goldbricks#index', via: [:get]
+    resources :goldbricks
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'vaults#index'
+  # root 'vaults#index'
 
   post 'themes/:theme' => 'themes#setting', as: :set_theme
   # Example of regular route:
@@ -55,4 +65,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root controller: 'home', action: 'index'
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Vaults", type: :request do
+RSpec.describe "Vaults", type: :request, skip: true do
   describe "GET /vaults" do
     it "works! (now write some real specs)" do
       get vaults_path

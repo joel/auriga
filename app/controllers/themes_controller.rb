@@ -1,9 +1,10 @@
 class ThemesController < ApplicationController
+  skip_before_action :authenticate_user!
+  skip_around_action :scope_current_vault
 
-   def setting
+  def setting
      session[:theme] = params[:theme]
      current_user.update theme: params[:theme] if current_user
      redirect_to :back
-   end
-
+  end
 end

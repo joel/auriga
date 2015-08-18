@@ -1,0 +1,29 @@
+h1 Listing goldbricks
+
+table
+  thead
+    tr
+      th Name
+      th Link
+      th Login
+      th Password
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @goldbricks.each do |goldbrick|
+      tr
+        td = goldbrick.name
+        td = goldbrick.link
+        td = goldbrick.login
+        td = goldbrick.password
+        td = goldbrick.content
+        td = link_to 'Show', goldbrick
+        td = link_to 'Edit', edit_goldbrick_path(goldbrick)
+        td = link_to 'Destroy', goldbrick, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Goldbrick', new_goldbrick_path

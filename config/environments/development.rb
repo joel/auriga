@@ -16,8 +16,9 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # Configuration of mailcatcher
-  config.action_mailer.delivery_method  = :smtp
-  config.action_mailer.smtp_settings    = { address: 'localhost', port: 1025 }
+  config.action_mailer.delivery_method     = :smtp
+  config.action_mailer.smtp_settings       = { address: 'localhost', port: 1025 }
+  config.action_mailer.default_url_options = { host: ENV['DOMAIN'] }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -38,4 +39,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = false
+
+  config.devise.password_length = 3..72
+
+  Slim::Engine.set_options pretty: true, sort_attrs: false
 end

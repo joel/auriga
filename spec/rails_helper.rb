@@ -18,9 +18,13 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
+
+  config.include Features::SessionHelpers, type: :feature
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -28,11 +32,28 @@ RSpec.configure do |config|
   # You can disable this behaviour by removing the line below, and instead
   # explicitly tag your specs with their type, e.g.:
   #
-  #     RSpec.describe UsersController, :type => :controller do
+  #     RSpec.describe UsersController, type: :controller do
   #       # ...
   #     end
   #
+
+  # config.before(:each, type: :request) do
+  #   set_host "me.auriga.dev"
+  # end
+
+  # http://stackoverflow.com/questions/6536503/capybara-with-subdomains-default-host
+  config.before(:each, type: :feature) do
+    set_host "me.auriga.dev"
+  end
+
+  def set_host (host)
+    default_url_options[:host] = host
+    Capybara.app_host = "http://#{host}"
+  end
+
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  # config.run_all_when_everything_filtered = true
 end

@@ -49,5 +49,3 @@ module Auriga
     end
   end
 end
-
-require 'trailblazer/rails/railtie'

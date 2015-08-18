@@ -22,12 +22,12 @@ gem 'rails-i18n'
 
 # Views
 gem 'slim-rails'
-
-# Trailblazer stuffs
-gem 'reform'
-gem 'trailblazer'
-gem 'cells', '4.0.0.beta2'
 gem 'simple_form'
+
+# Model / Busines logic.
+# gem 'virtus'
+# gem 'wisper'
+gem 'interactor'
 
 # Configuration
 gem 'figaro'
@@ -45,6 +45,15 @@ gem 'mongoid'
 
 # Js dependencies
 gem 'bower-rails'
+
+# Autentication
+gem 'devise'
+# gem 'devise_invitable'
+gem 'devise-i18n'
+gem 'devise-i18n-views' #, git: 'git@github.com:mcasimir/devise-i18n-views.git'
+
+# Saas
+gem 'mongoid-multitenancy'
 
 group :production do
   gem 'puma'
@@ -69,9 +78,20 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'rspec-rails'
   gem 'onesky-rails', github: 'demental/onesky-rails', branch: 'working'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :test do
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
+  # gem 'email_spec'
 end
+
+# group :console do
+#   gem 'fancy_irb'
+#   gem 'wirb'
+#   gem 'hirb'
+#   gem 'awesome_print'
+# end

@@ -1,58 +1,55 @@
 class VaultsController < ApplicationController
-  before_action :set_vault, only: [:show, :edit, :update, :destroy]
-
-  # GET /vaults
-  def index
-    @vaults = Vault.all
-  end
+  skip_around_action :scope_current_vault, only: [:new, :create]
 
   # GET /vaults/1
   def show
+    @vault = current_vault
   end
 
-  # GET /vaults/new
+  # GET /goldbricks/new
   def new
-    form Vault::Create
+    @vault = Vault.new
   end
 
-  # GET /vaults/1/edit
+  # GET /vaults/1
   def edit
-    form Vault::Update
+    @vault = current_vault
   end
 
   # POST /vaults
   def create
-    run Vault::Create do |operation|
-      return redirect_to operation.model
-    end
+    @vault = Vault.new(vault_params)
 
-    render action: :new
+    if @vault.save
+      Mongoid::Multitenancy.with_tenant(@vault) do
+        current_user.vault = @vault
+        current_user.save
+      end
+      flash[:notice] = I18n.t('controllers.vault.create.success') # 'Vault was successfully created.'
+      redirect_to vault_url(id: @vault, subdomain: @vault.subdomain)
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /vaults/1
   def update
-    run Vault::Update do |operation|
-      return redirect_to operation.model
+    if current_vault.update(user_params)
+      redirect_to @vault, notice: I18n.t('controllers.vault.update.success') # 'Vault was successfully updated.'
+    else
+      render :edit
     end
-
-    render action: :edit
   end
 
   # DELETE /vaults/1
   def destroy
-    run Vault::Destroy do
-      redirect_to vaults_url, notice: 'Vault was successfully destroyed.'
-    end
+    current_vault.destroy
+    redirect_to new_vault_url(subdomain: nil), notice: I18n.t('controllers.vault.destroy.success') # 'Vault was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_vault
-      @vault = Vault.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def vault_params
-      params.require(:vault).permit(:subdomain)
-    end
+  def vault_params
+    params.require(:vault).permit(:subdomain)
+  end
 end

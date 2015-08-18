@@ -1,7 +1,39 @@
 class ApplicationController < ActionController::Base
+  include UrlHelper
+
+  class Forbidden < StandardError; end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery # with: :exception # http://goo.gl/6esHjG # raise ActionController::InvalidAuthenticityToken
+
+  before_action :authenticate_user!
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+
+  around_action :scope_current_vault, if: :scope_current_vault_is_required?
+
+  protected
+
+  def current_vault
+    return nil unless user_signed_in?
+
+    vault = current_user.vault.tap do
+      if current_user.vault.subdomain != request.subdomain
+        raise Forbidden, I18n.t('exception.forbidden')
+      end
+    end
+    vault
+  end
+  helper_method :current_vault
+
+  def scope_current_vault
+    Mongoid::Multitenancy.current_tenant = current_vault
+    yield
+  rescue => e
+    Rails.logger.error e.message
+    Mongoid::Multitenancy.current_tenant = nil
+    raise
+  end
 
   def themes
     @themes ||= %w[cyborg readable cosmo flatly simplex cerulean]
@@ -19,16 +51,31 @@ class ApplicationController < ActionController::Base
       end
     rescue Exception => e
       puts e.message
-      binding.pry
     end
     theme
   end
   helper_method :current_theme
 
-  def current_user
-    nil
-  end
-  helper_method :current_user
+  private
 
-  include Trailblazer::Operation::Controller
+  def after_sign_up_path_for resource
+    root_url(subdomain: 'www')
+  end
+
+  def after_sign_in_path_for resource
+    if resource.vault
+      goldbricks_url(subdomain: resource.vault.subdomain)
+    else
+      new_vault_url(subdomain: 'www')
+    end
+  end
+
+  def after_sign_out_path_for resource
+    sign_out current_user
+    root_url(subdomain: 'www')
+  end
+
+  def scope_current_vault_is_required?
+    !devise_controller? # or params[:controller] == 'vault'
+  end
 end
