@@ -22,17 +22,11 @@ describe UsersController, type: :controller do
   let!(:user)  { create(:user_with_vault, :confirmed, subdomain: 'me') }
   let(:vault) { user.vault }
 
-  before do
-    # Mongoid::Multitenancy.with_tenant(nil) do
-    sign_in user
-  # end
-    # host! "me.example.com"
-  end
+  before { sign_in user }
 
   before(:each) do
-    @request.host = "me.example.com"
+    @request.host = "me.auriga.dev"
   end
-
 
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
@@ -56,7 +50,6 @@ describe UsersController, type: :controller do
 
   describe "GET show" do
     it "assigns the requested user as @user" do
-      # user = User.create! valid_create_attributes
       get :show, { id: user.to_param }, valid_session
       expect(assigns(:user)).to eq(user)
     end
@@ -64,7 +57,6 @@ describe UsersController, type: :controller do
 
   describe "GET edit" do
     it "assigns the requested user as @user" do
-      # user = User.create! valid_create_attributes
       get :edit, {id: user.to_param}, valid_session
       expect(assigns(:user)).to eq(user)
     end
@@ -73,7 +65,6 @@ describe UsersController, type: :controller do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested user" do
-        # user = User.create! valid_create_attributes
         # Assuming there are no other users in the database, this
         # specifies that the User created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -83,13 +74,11 @@ describe UsersController, type: :controller do
       end
 
       it "assigns the requested user as @user" do
-        # user = User.create! valid_create_attributes
         put :update, {id: user.to_param, user: valid_attributes}, valid_session
         expect(assigns(:user)).to eq(user)
       end
 
       it "redirects to the user", skip: true do
-        # user = User.create! valid_create_attributes
         put :update, {id: user.to_param, user: valid_attributes}, valid_session
         expect(response).to redirect_to(user)
       end
@@ -97,7 +86,6 @@ describe UsersController, type: :controller do
 
     describe "with invalid params" do
       it "assigns the user as @user" do
-        # user = User.create! valid_create_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(User).to receive(:save).and_return(false)
         put :update, {id: user.to_param, user: { "name" => "invalid value" }}, valid_session
@@ -105,7 +93,6 @@ describe UsersController, type: :controller do
       end
 
       it "re-renders the 'edit' template", skip: true do
-        # user = User.create! valid_create_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(User).to receive(:save).and_return(false)
         put :update, {id: user.to_param, user: { "name" => "invalid value" }}, valid_session
@@ -124,14 +111,12 @@ describe UsersController, type: :controller do
     end
 
     it "destroys the requested user" do
-      # user = User.create! valid_create_attributes
       expect {
         delete :destroy, {id: user.to_param}, valid_session
       }.to change(User, :count).by(-1)
     end
 
     it "redirects to the users list" do
-      # user = User.create! valid_create_attributes
       delete :destroy, {id: user.to_param}, valid_session
       expect(response).to redirect_to(users_url)
     end

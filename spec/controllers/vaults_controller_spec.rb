@@ -1,23 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe VaultsController, type: :controller do
+  let(:user)               { create(:user, :confirmed) }
+  let(:valid_attributes)   { { subdomain: 'me' } }
+  let(:subdomain)          { valid_attributes[:subdomain] }
+  let(:invalid_attributes) { { subdomain: nil } }
 
-  let(:user)  { create(:user, :confirmed) }
-  before do
-    # Mongoid::Multitenancy.with_tenant(nil) do
-    sign_in user
-  # end
-    # host! "me.example.com"
-  end
-
-  let(:valid_attributes) { { subdomain: 'me' } }
-  let(:subdomain) { valid_attributes[:subdomain] }
-  # let(:invalid_attributes) {
-  #   { subdomain: nil }
-  # }
+  before { sign_in user }
 
   before(:each) do
-    @request.host = "#{subdomain}.example.com"
+    @request.host = "#{subdomain}.auriga.dev"
   end
 
   let(:valid_session) { {} }

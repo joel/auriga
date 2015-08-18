@@ -7,7 +7,7 @@ RSpec.describe GoldbricksController, type: :controller do
   before { sign_in user }
 
   before(:each) do
-    @request.host = "#{vault.subdomain}.example.com"
+    @request.host = "#{vault.subdomain}.auriga.dev"
   end
 
   around(:each) do |example|

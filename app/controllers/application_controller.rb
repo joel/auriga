@@ -58,23 +58,21 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def after_sign_up_path_for resource
-  #   # new_vault_path
-  #   root_path
-  # end
+  def after_sign_up_path_for resource
+    root_url(subdomain: 'www')
+  end
 
   def after_sign_in_path_for resource
     if resource.vault
-      goldbricks_path
+      goldbricks_url(subdomain: resource.vault.subdomain)
     else
-      # users_url(subdomain: resource.vault.subdomain)
-      new_vault_path
+      new_vault_url(subdomain: 'www')
     end
   end
 
   def after_sign_out_path_for resource
     sign_out current_user
-    root_url(subdomain: 'www', protocol: :http)
+    root_url(subdomain: 'www')
   end
 
   def scope_current_vault_is_required?
