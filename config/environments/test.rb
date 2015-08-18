@@ -43,5 +43,5 @@ Rails.application.configure do
 
   config.devise.password_length = 3..72
 
-  Slim::Engine.set_default_options pretty: true, sort_attrs: false
+  Slim::Engine.set_options pretty: true, sort_attrs: false
 end
