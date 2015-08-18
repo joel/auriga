@@ -48,7 +48,7 @@ gem 'bower-rails'
 
 # Autentication
 gem 'devise'
-# gem 'devise_invitable'
+gem 'devise_invitable'
 gem 'devise-i18n'
 gem 'devise-i18n-views' #, git: 'git@github.com:mcasimir/devise-i18n-views.git'
 # gem 'devise-bootstrap-views'

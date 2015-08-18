@@ -4,7 +4,7 @@ class User < BasicModel
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
-  devise :confirmable, :database_authenticatable, :registerable,
+  devise :invitable, :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
@@ -35,6 +35,16 @@ class User < BasicModel
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  ## Invitable
+  field :invitation_token,       type: String
+  field :invitation_created_at,  type: Time
+  field :invitation_sent_at,     type: Time
+  field :invitation_accepted_at, type: Time
+  field :invitation_limit,       type: Integer
+
+  index({ invitation_token: 1 }, { background: true })
+  index({ invitation_by_id: 1 }, { background: true })
 
   # Extra Field
   field :name,      type: String, default: ''

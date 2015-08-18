@@ -7,6 +7,11 @@ module Features
       fill_login_as user, password
     end
 
+    def confirm_last_invitation!
+      token = extract_invitation_token last_email
+      visit "/users/invitation/accept?invitation_token=#{token}"
+    end
+
     def confirm_last_sign_up!
       token = extract_confirmation_token last_email
       visit "/users/confirmation?confirmation_token=#{token}"
@@ -48,6 +53,10 @@ module Features
 
     def extract_confirmation_token(email)
       email && email.body && email.body.to_s.match(/confirmation_token=(?<token>[^"]+)/)[:token]
+    end
+
+    def extract_invitation_token(email)
+      email && email.body && email.body.to_s.match(/invitation_token=(?<token>[^"]+)/)[:token]
     end
   end
 end
