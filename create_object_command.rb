@@ -30,7 +30,7 @@ def create_user(numero, vault)
     response, operation = User::Create.run(user: attributes)
     user = operation.model
     user.vault = vault
-    user.confirm!
+    user.confirm
   end
   user
 end
@@ -74,7 +74,7 @@ end
 
 response, operation = User::Create.run(user: attributes)
 user = operation.model
-user.confirm!
+user.confirm
 
 User.all.map(&:name)
 
@@ -184,7 +184,7 @@ User.where(vault: Mongoid::Multitenancy.current_tenant.id).all.entries
 #   end
 #
 #   response, operation = User::Create.run(user: attributes)
-#   operation.model.confirm!
+#   operation.model.confirm
 # end
 #
 # Mongoid::Multitenancy.current_tenant = vault
@@ -204,7 +204,7 @@ User.where(vault: Mongoid::Multitenancy.current_tenant.id).all.entries
 #   }
 # end
 # response, operation = User::Create.run(user: attributes)
-# operation.model.confirm!
+# operation.model.confirm
 # operation.model.vault
 #
 # operation.model.vault = Vault.all.sample
@@ -222,5 +222,5 @@ User.where(vault: Mongoid::Multitenancy.current_tenant.id).all.entries
 #   }
 # end
 # response, operation = User::Create.run(user: attributes)
-# operation.model.confirm!
+# operation.model.confirm
 # operation.model.vault
