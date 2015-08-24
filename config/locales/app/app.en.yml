@@ -1,0 +1,10 @@
+---
+en:
+  app:
+    name: Auriga
+  home:
+    title: Passle.eu
+    content: "The easy way for keep all passwords always with you!"
+    demo: "Try live demo!"
+  exception:
+    forbidden: "You are not authorized to perform that action."

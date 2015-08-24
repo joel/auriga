@@ -76,6 +76,6 @@ class ApplicationController < ActionController::Base
   end
 
   def scope_current_vault_is_required?
-    !devise_controller? # or params[:controller] == 'vault'
+    !devise_controller? && params[:controller] != 'demo'
   end
 end
