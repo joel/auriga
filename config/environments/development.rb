@@ -45,5 +45,8 @@ Rails.application.configure do
   Slim::Engine.set_options pretty: true, sort_attrs: false
 end
 
-require 'byebug'
-Byebug.start_server 'localhost', 5999
+begin
+  require 'byebug'
+  Byebug.start_server 'localhost', 6000
+rescue Exception
+end
