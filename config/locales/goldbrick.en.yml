@@ -6,6 +6,8 @@ en:
         success: 'Goldbrick was successfully updated.'
       create:
         success: 'Goldbrick was successfully created.'
+      destroy:
+        success: 'Goldbrick was successfully destroy.'
 
   helpers:
     submit:

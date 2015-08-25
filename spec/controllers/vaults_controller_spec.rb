@@ -25,13 +25,6 @@ RSpec.describe VaultsController, type: :controller do
         expect(user.vault.subdomain).to eql('me')
       end
     end
-
-    # context "with invalid params" do
-    #   it "re-renders the 'new' template" do
-    #     post :create, {vault: invalid_attributes}, valid_session
-    #     expect(response).to render_template("new")
-    #   end
-    # end
   end
 
 end

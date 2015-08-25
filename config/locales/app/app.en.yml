@@ -13,3 +13,5 @@ en:
       cancel: Cancel
       edit: Edit
       destroy: Destroy
+    submit:
+      all: Validate

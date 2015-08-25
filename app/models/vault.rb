@@ -11,6 +11,6 @@ class Vault
   validates_length_of :subdomain, maximum: 32
   validates_exclusion_of :subdomain, in: ['www', 'mail', 'ftp']
 
-  has_many :users
+  has_many :users, dependent: :destroy
   has_many :goldbricks, dependent: :destroy
 end
