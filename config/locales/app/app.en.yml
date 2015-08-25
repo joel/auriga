@@ -11,3 +11,5 @@ en:
   helpers:
     links:
       cancel: Cancel
+      edit: Edit
+      destroy: Destroy
