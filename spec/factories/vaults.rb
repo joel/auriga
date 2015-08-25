@@ -7,5 +7,21 @@ FactoryGirl.define do
     # end
     # subdomain { subdomain_name || generate(:subdomain) }
     subdomain { generate(:subdomain) }
+
+    # create(:with_goldbricks, goldbrick_count: 1)
+    # create(:with_goldbricks)
+    trait :with_goldbricks do
+      transient { goldbrick_count 1 }
+      after(:build) do |vault, evaluator|
+        evaluator.goldbrick_count.times.each do
+          vault.goldbricks << build(:goldbrick)
+        end
+      end
+      after(:create) do |vault, evaluator|
+        vault.save!
+        vault.goldbricks.each(&:save!)
+      end
+    end
+
   end
 end

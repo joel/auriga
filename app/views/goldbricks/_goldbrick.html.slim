@@ -9,5 +9,5 @@ tr id="#{goldbrick.id}"
     .tzinfo
       | Unknow
   td.hidden-xs
-    = link_to goldbrick, method: :delete, class: 'goldbrick-delete-link', remote: true do
+    = link_to goldbrick, method: :delete, class: 'goldbrick-delete-link', id: "goldbrick_delete_#{goldbrick.id}", remote: true do
       span.glyphicon.glyphicon-minus-sign

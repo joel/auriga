@@ -86,12 +86,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
-  # gem 'email_spec'
+  gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
-
-# group :console do
-#   gem 'fancy_irb'
-#   gem 'wirb'
-#   gem 'hirb'
-#   gem 'awesome_print'
-# end

@@ -1,0 +1,53 @@
+---
+en:
+  controller:
+    goldbricks:
+      update:
+        success: 'Goldbrick was successfully updated.'
+      create:
+        success: 'Goldbrick was successfully created.'
+          
+  helpers:
+    submit:
+      goldbrick:
+        create: "Add new access"
+        update: "Save Changes"
+
+  simple_form:
+    hints:
+      goldbrick:
+        name:     Name
+        link:     Link
+        login:    Login
+        password: Password
+        content:  Content
+        security: Security
+    helpers:
+      submit:
+        goldbrick:
+          create: "Add access"
+          update: "Save Changes"
+    labels:
+      goldbrick:
+        name:     Name
+        link:     Link
+        login:    Login
+        password: Password
+        content:  Content
+        security: Security
+    placeholders:
+      goldbrick:
+        subdomain: Subdomain
+  activerecord:
+    models:
+      goldbrick: Access
+    attributes:
+      goldbrick:
+        name:       Name
+        link:       Link
+        login:      Login
+        password:   Password
+        content:    Content
+        security:   Security
+        created_at: "Created at"
+        updated_at: "Updated at"

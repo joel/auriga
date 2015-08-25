@@ -6,6 +6,14 @@ FactoryGirl.define do
     password 'secret'
     content  Faker::Lorem.words
 
+    factory :facebook do
+      name     'Facebook'
+      link     'https://facebook.com'
+      login    Faker::Internet.slug
+      password 'secret'
+      content  'Facebook account'
+    end
+    
     # create(:goldbrick_with_vault, subdomain: 'me')
     factory :goldbrick_with_vault do
       transient { subdomain nil }

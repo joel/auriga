@@ -8,3 +8,6 @@ en:
     demo: "Try live demo!"
   exception:
     forbidden: "You are not authorized to perform that action."
+  helpers:
+    links:
+      cancel: Cancel
