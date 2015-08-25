@@ -13,10 +13,7 @@ describe 'sign up and subdomain creation', type: :feature do
     end
 
     expect(user.reload).to be_vault
-
-    # save_and_open_page
-    # expect(current_path).to eq(vault_url(id: user.vault, subdomain: user.vault.subdomain))
-    expect(current_path).to eq(vault_path(user.vault))
+    expect(current_url).to eql(goldbricks_url(subdomain: user.vault.subdomain))
   end
 
 end

@@ -20,7 +20,7 @@ RSpec.describe VaultsController, type: :controller do
         expect {
           post :create, { vault: valid_attributes }, valid_session
         }.to change(Vault, :count).by(+1)
-        expect(response).to redirect_to(vault_url(id: Vault.last, subdomain: Vault.last.subdomain))
+        expect(response).to redirect_to(goldbricks_url(subdomain: Vault.last.subdomain))
         expect(user.reload).to be_vault
         expect(user.vault.subdomain).to eql('me')
       end

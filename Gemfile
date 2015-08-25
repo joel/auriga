@@ -42,6 +42,7 @@ gem 'less-rails', git: 'https://github.com/metaskills/less-rails.git'
 
 # Backend storage
 gem 'mongoid'
+gem 'mongoid-enum'
 
 # Js dependencies
 gem 'bower-rails'

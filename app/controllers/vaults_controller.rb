@@ -13,20 +13,23 @@ class VaultsController < ApplicationController
     if @vault.save
       Mongoid::Multitenancy.with_tenant(@vault) do
         current_user.vault = @vault
+        current_user.roles = :owner
+        current_user.security = :admin
         current_user.save
       end
       flash[:notice] = I18n.t('controllers.vault.create.success') # 'Vault was successfully created.'
-      redirect_to vault_url(id: @vault, subdomain: @vault.subdomain)
+      # redirect_to vault_url(id: @vault, subdomain: @vault.subdomain)
+      redirect_to goldbricks_url(subdomain: @vault.subdomain)
     else
       render :new
     end
   end
 
-  # DELETE /vaults/1
-  def destroy
-    current_vault.destroy
-    redirect_to new_vault_url(subdomain: nil), notice: I18n.t('controllers.vault.destroy.success') # 'Vault was successfully destroyed.'
-  end
+  # # DELETE /vaults/1
+  # def destroy
+  #   current_vault.destroy
+  #   redirect_to new_vault_url(subdomain: nil), notice: I18n.t('controllers.vault.destroy.success') # 'Vault was successfully destroyed.'
+  # end
 
   private
 
