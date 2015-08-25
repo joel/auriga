@@ -6,7 +6,7 @@ en:
         success: 'Goldbrick was successfully updated.'
       create:
         success: 'Goldbrick was successfully created.'
-          
+
   helpers:
     submit:
       goldbrick:
@@ -38,16 +38,15 @@ en:
     placeholders:
       goldbrick:
         subdomain: Subdomain
-  activerecord:
+
+  mongoid:
     models:
-      goldbrick: Access
+      goldbrick: Goldbrick
     attributes:
       goldbrick:
-        name:       Name
-        link:       Link
-        login:      Login
-        password:   Password
-        content:    Content
-        security:   Security
-        created_at: "Created at"
-        updated_at: "Updated at"
+        name:     Name
+        link:     Link
+        login:    Login
+        password: Password
+        content:  Content
+        security: Security

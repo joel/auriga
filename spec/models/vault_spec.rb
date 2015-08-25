@@ -18,7 +18,10 @@ RSpec.describe Vault, type: :model do
       end
       specify do
         expect(vault).to_not be_valid
-        expect(vault.errors.full_messages).to eql(["Subdomain can't be blank"])
+        expect(vault.errors.full_messages).to eql(
+          [ "Subdomain can't be blank",
+            "Subdomain must be lowercase alphanumerics only"
+          ])
       end
     end
   end
