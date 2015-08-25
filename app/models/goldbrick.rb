@@ -1,5 +1,6 @@
 class Goldbrick
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :name,      type: String
   field :link,      type: String
@@ -13,4 +14,9 @@ class Goldbrick
   belongs_to :vault
   # validates :vault, :login, presence: true
   # validates_associated :vault
+
+  def safe_name
+    return 'undefined' if name.blank?
+    name
+  end
 end

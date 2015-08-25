@@ -1,0 +1,13 @@
+tr id="#{goldbrick.id}"
+  td
+    = link_to goldbrick.safe_name, goldbrick
+  td= link_to goldbrick.login, goldbrick.link, target: '_blank'
+  td= goldbrick.password
+  td.hidden-xs
+    date data-format='lll' data-method='format'
+      = goldbrick.updated_at
+    .tzinfo
+      | Unknow
+  td.hidden-xs
+    = link_to goldbrick, method: :delete, class: 'goldbrick-delete-link', remote: true do
+      span.glyphicon.glyphicon-minus-sign

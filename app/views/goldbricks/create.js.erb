@@ -1,0 +1,13 @@
+$('#myModal').modal('hide')
+
+$('#myModal').on('hidden.bs.modal', function () {
+  $('table.goldbricks').find('tbody').append("<%= escape_javascript(render @goldbrick) %>");
+})
+
+$('form.new_goldbrick').on('ajax:success', function(event, data, status, xhr) {
+  // $('table.goldbricks').find('tbody').append("<%= escape_javascript(render @goldbrick) %>");
+  console.log('ajax:success')
+}).bind('ajax:error', function(event, data, status, xhr) {
+    var errors = $.parseJSON(xhr.responseText).errors
+  $('.goldbrick-table-container').prepend("<div class=\"alert alert-danger\">" + errors + "</div>")
+});

@@ -19,7 +19,7 @@ RSpec.describe GoldbricksController, type: :controller do
   let(:valid_attributes)   { attributes_for(:goldbrick) }
   let(:invalid_attributes) { valid_attributes.merge(login: nil) }
   let(:valid_session)      { {} }
-  let(:params)             { {} }
+  let(:params)             { { format: :html } }
 
   def create_goldbrick attributes
     goldbrick = Goldbrick.new valid_attributes
@@ -75,7 +75,7 @@ RSpec.describe GoldbricksController, type: :controller do
 
       it "redirects to the created goldbrick" do
         post :create, params.merge({ goldbrick: valid_attributes }), valid_session
-        expect(response).to redirect_to(Goldbrick.last)
+        expect(response).to redirect_to(goldbricks_url)
       end
     end
 

@@ -1,21 +1,21 @@
-p#notice = notice
-
+- model_class = Goldbrick
+h1=t '.title', default: model_class.model_name.human
 p
-  strong Name:
+  strong= model_class.human_attribute_name(:link) + ': '
+  = link_to @goldbrick.link, @goldbrick.link, target: '_blank'
+p
+  strong= model_class.human_attribute_name(:name) + ': '
   = @goldbrick.name
 p
-  strong Link:
-  = @goldbrick.link
-p
-  strong Login:
+  strong= model_class.human_attribute_name(:login) + ': '
   = @goldbrick.login
 p
-  strong Password:
+  strong= model_class.human_attribute_name(:password) + ': '
   = @goldbrick.password
 p
-  strong Content:
+  strong= model_class.human_attribute_name(:content) + ': '
   = @goldbrick.content
 
-= link_to 'Edit', edit_goldbrick_path(@goldbrick)
-'|
-= link_to 'Back', goldbricks_path
+.page-header
+
+/ = render_cell :goldbrick, :show, goldbrick: @goldbrick
