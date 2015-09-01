@@ -33,5 +33,21 @@ FactoryGirl.define do
       end
       after(:create) { |u,e| u.vault.save }
     end
+
+    # create(:user, :with_vault_and_goldbricks, :confirmed, subdomain: 'me')
+    # create(:user, :with_vault_and_goldbricks, subdomain: 'me')
+    trait :with_vault_and_goldbricks do
+      transient { subdomain FactoryGirl.generate(:subdomain) }
+      after(:build) do |user, evaluator|
+        user.vault = build(:vault, :with_goldbricks, subdomain: evaluator.subdomain)
+      end
+      after(:create) do |user, evaluator|
+        user.save!
+        user.vault.save!
+        user.vault.goldbricks.each(&:save!)
+      end
+
+    end
+
   end
 end

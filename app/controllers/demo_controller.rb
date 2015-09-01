@@ -4,7 +4,7 @@ class DemoController < ApplicationController
 
   def fake_sign_in
     @user = User.where(email: 'john@passle.eu').first
-    flash.now[:notice] = "Signed in successfully"
-    sign_in_and_redirect(:user, @user)
+    flash.now[:notice] = I18n.t('devise.sessions.signed_in') # "Signed in successfully"
+    sign_in_and_redirect(@user)
   end
 end

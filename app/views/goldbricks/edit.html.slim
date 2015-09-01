@@ -1,8 +1,4 @@
-h1 Editing goldbrick
-
-== render 'form'
-
-= link_to 'Show', @goldbrick
-'|
-= link_to 'Back', goldbricks_path
-
+- model_class = Goldbrick
+.page-header
+  h1=t '.title', default: t('helpers.titles.edit', model: model_class.model_name.human)
+= render 'form'

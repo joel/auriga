@@ -1,21 +1,26 @@
-p#notice = notice
-
+- model_class = Goldbrick
+h1=t '.title', default: model_class.model_name.human
 p
-  strong Name:
+  strong= model_class.human_attribute_name(:link) + ': '
+  = link_to @goldbrick.link, @goldbrick.link, target: '_blank'
+p
+  strong= model_class.human_attribute_name(:name) + ': '
   = @goldbrick.name
 p
-  strong Link:
-  = @goldbrick.link
-p
-  strong Login:
+  strong= model_class.human_attribute_name(:login) + ': '
   = @goldbrick.login
 p
-  strong Password:
+  strong= model_class.human_attribute_name(:password) + ': '
   = @goldbrick.password
 p
-  strong Content:
+  strong= model_class.human_attribute_name(:content) + ': '
   = @goldbrick.content
 
-= link_to 'Edit', edit_goldbrick_path(@goldbrick)
-'|
-= link_to 'Back', goldbricks_path
+.page-header
+
+div class="form-group"
+  = link_to t('.new', default: t('helpers.links.new')), new_goldbrick_path, class: 'btn btn-reduce btn-primary'
+  = link_to t('.back', default: t('helpers.links.back')), goldbricks_path, class: 'btn btn-reduce'
+  = link_to t('.edit', default: t('helpers.links.edit')), edit_goldbrick_path(@goldbrick), class: 'btn btn-reduce'
+  = link_to t('.destroy', default: t('helpers.links.destroy')), goldbrick_path(@goldbrick), method: :delete, 
+    data: { confirm: t('.confirm', default: t('helpers.links.confirm', default: 'Are you sure?')) }, class: 'btn btn-danger btn-reduce', id: "goldbrick_delete_#{@goldbrick.id}"

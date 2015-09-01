@@ -1,6 +1,7 @@
 class User < BasicModel
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Enum
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
@@ -52,6 +53,8 @@ class User < BasicModel
   field :locale,    type: String, default: 'en'
   field :time_zone, type: String, default: 'Europe/Paris'
   field :security,  type: Integer, default: 0 # (0..5)
+  enum :security, [:admin, :gold, :bronze, :silver, :nothing], default: :nothing
+  enum :roles, [:owner, :invited], default: :invited
 
   include Mongoid::Multitenancy::Document
   tenant :vault, optional: true, full_indexes: true

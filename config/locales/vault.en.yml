@@ -1,5 +1,11 @@
 ---
 en:
+  helpers:
+    submit:
+      vault:
+        create: "Add your subdomain"
+        update: "Change your subdomain"
+
   simple_form:
     hints:
       vault:
@@ -15,16 +21,18 @@ en:
     placeholders:
       vault:
         subdomain: Subdomain
-  activerecord:
+
+  mongoid:
     models:
       vault: Vault
     attributes:
       vault:
-        subdomain: Subdomain
-        created_at: "Created at"
-        updated_at: "Updated at"
-  helpers:
-    submit:
-      vault:
-        create: "Add your subdomain"
-        update: "Change your subdomain"
+       subdomain: Subdomain
+    errors:
+      models:
+        vault:
+          attributes:
+            subdomain:
+              format: "must be lowercase alphanumerics only"
+              length: "exceeds maximum of 32 characters"
+              exclusion: "is not available"

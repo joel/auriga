@@ -1,29 +1,23 @@
-h1 Listing goldbricks
+- model_class = Goldbrick
+h1= t '.title.other'
+.row
+  .span12
+    .col-md-12.goldbrick-table-container
+      .table-responsive
+        table.table.table-striped.table-hover.table-condensed.goldbricks
+          thead
+            tr
+              th= model_class.human_attribute_name(:name)
+              th= model_class.human_attribute_name(:login)
+              th= model_class.human_attribute_name(:password)
+              th.hidden-xs= model_class.human_attribute_name(:updated_at)
+              th.hidden-xs
+          tbody
+            = render @goldbricks
 
-table
-  thead
-    tr
-      th Name
-      th Link
-      th Login
-      th Password
-      th Content
-      th
-      th
-      th
+      / = link_to t('.new', default: t('helpers.links.new')), new_goldbrick_path, class: 'btn btn-primary'
 
-  tbody
-    - @goldbricks.each do |goldbrick|
-      tr
-        td = goldbrick.name
-        td = goldbrick.link
-        td = goldbrick.login
-        td = goldbrick.password
-        td = goldbrick.content
-        td = link_to 'Show', goldbrick
-        td = link_to 'Edit', edit_goldbrick_path(goldbrick)
-        td = link_to 'Destroy', goldbrick, data: {:confirm => 'Are you sure?'}, :method => :delete
+      button.btn.btn-primary data-toggle='modal' data-target='#myModal'
+        = t('.new', default: t('helpers.links.new'))
 
-br
-
-= link_to 'New Goldbrick', new_goldbrick_path
+= render 'modal'

@@ -3,7 +3,7 @@ class GoldbricksController < ApplicationController
 
   # GET /goldbricks
   def index
-    @goldbricks = Goldbrick.all
+    @goldbricks = current_vault.goldbricks
   end
 
   # GET /goldbricks/1
@@ -12,7 +12,7 @@ class GoldbricksController < ApplicationController
 
   # GET /goldbricks/new
   def new
-    @goldbrick = Goldbrick.new
+    @goldbrick = current_vault.goldbricks.new
   end
 
   # GET /goldbricks/1/edit
@@ -21,31 +21,49 @@ class GoldbricksController < ApplicationController
 
   # POST /goldbricks
   def create
-    @goldbrick = Goldbrick.new(goldbrick_params)
+    @goldbrick = current_vault.goldbricks.new(goldbrick_params)
     @goldbrick.vault = current_vault
 
-    if @goldbrick.save
-      # redirect_to [current_vault, @goldbrick], notice: I18n.t('controllers.goldbrick.create.success') # 'Goldbrick was successfully created.'
-      # vault_goldbrick_url(id: @goldbrick.id, subdomain: current_vault.subdomain)
-      redirect_to @goldbrick, notice: I18n.t('controllers.goldbrick.create.success')
-    else
-      render :new
+    respond_to do |format|
+      if @goldbrick.save
+        format.html do
+          flash[:notice] = I18n.t('controller.goldbricks.create.success')
+          redirect_to goldbricks_url
+        end
+        format.json { render action: 'show', status: :created, location: @goldbrick }
+        format.js {}
+      else
+        format.html { render action: 'new' }
+        format.json { render json: { errors: @goldbrick.errors }, status: :unprocessable_entity }
+        format.js {}
+      end
     end
   end
 
   # PATCH/PUT /goldbricks/1
   def update
-    if @goldbrick.update(goldbrick_params)
-      redirect_to @goldbrick, notice: I18n.t('controllers.goldbrick.update.success') # 'Goldbrick was successfully updated.'
-    else
-      render :edit
+    respond_to do |format|
+      if @goldbrick.update(goldbrick_params)
+        format.html { redirect_to @goldbrick, notice: I18n.t('controller.goldbricks.update.success')  } # 'Goldbrick was successfully updated.'
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @goldbrick.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   # DELETE /goldbricks/1
   def destroy
     @goldbrick.destroy
-    redirect_to goldbricks_url, notice: I18n.t('controllers.goldbrick.destroy.success') # 'Goldbrick was successfully destroyed.'
+
+    respond_to do |format|
+      format.html do
+        redirect_to goldbricks_url, notice: I18n.t('controllers.goldbrick.destroy.success') # 'Goldbrick was successfully destroyed.'
+      end
+      format.json { render nothing: true, status: 200 }
+      format.js {}
+    end
   end
 
   private

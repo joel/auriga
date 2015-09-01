@@ -1,0 +1,14 @@
+tr id="#{goldbrick.id}"
+  td
+    = link_to goldbrick.safe_name, goldbrick
+  td= link_to goldbrick.login, goldbrick.link, target: '_blank'
+  td= goldbrick.password
+  td.hidden-xs
+    date data-format='lll' data-method='format'
+      = goldbrick.updated_at
+    .tzinfo
+      | Unknow
+  td.hidden-xs
+    = link_to t('.edit', default: t('helpers.links.edit')), edit_goldbrick_path(goldbrick), class: 'btn btn-primary btn-xs'
+    | &#xA0;
+    = link_to t('.destroy', default: t('helpers.links.destroy')), goldbrick_path(goldbrick), method: :delete, data: { confirm: t('.confirm', default: t('helpers.links.confirm', default: 'Are you sure?')) }, class: 'btn btn-danger btn-xs', id: "goldbrick_delete_#{goldbrick.id}"

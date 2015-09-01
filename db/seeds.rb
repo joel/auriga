@@ -23,16 +23,18 @@ Mongoid::Multitenancy.with_tenant(vault) do
   puts("Confirm user John Doe")
   user.confirm
 
-  puts("Create one fake entry on goldbrick (Github)")
-  goldbrick = Goldbrick.new({
-    name:     'Github',
-    link:     'https://github.com',
-    login:    'john',
-    password: Faker::Internet.password(10, 20),
-    content:  'Main account',
-  })
-  goldbrick.vault = vault
-  goldbrick.save
+  ['Facebook', 'Twitter', 'Linkedin', 'Github'].each do |name|
+    puts("Create one fake entry (#{name})")
+    goldbrick = Goldbrick.new({
+      name:     name,
+      link:     "http://www.#{name.downcase}.com",
+      login:    'demo@example.com',
+      password: Faker::Internet.password(10, 20),
+      content:  "#{name} account",
+    })
+    goldbrick.vault = vault
+    goldbrick.save
+  end
 end
 
 puts("Done!")

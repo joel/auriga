@@ -1,4 +1,6 @@
 language: ruby
+env:
+  - DOMAIN=.example.com APP_MAILER_FROM=me@example.com APP_MAILER_RETURN_PATH=me@example.com 
 gemfile:
   - gemfiles/Gemfile.rails-head
 matrix:

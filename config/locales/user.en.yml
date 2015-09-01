@@ -1,0 +1,10 @@
+---
+en:
+  controller:
+    user:
+      update:
+        success: 'User was successfully updated.'
+      create:
+        success: 'User was successfully created.'
+      destroy:
+        success: 'User was successfully destroy.'
