@@ -1,0 +1,44 @@
+{
+  "name":"auriga",
+  "scripts":{
+    "postdeploy":"bundle exec rake db:seed"
+  },
+  "env":{
+    "AIRBRAKE_API_KEY":{
+      "required":true
+    },
+    "APP_MAILER_FROM":{
+      "required":true
+    },
+    "APP_MAILER_RETURN_PATH":{
+      "required":true
+    },
+    "BUILDPACK_URL":{
+      "required":true
+    },
+    "DOMAIN":{
+      "required":true
+    },
+    "LANG":{
+      "required":true
+    },
+    "RACK_ENV":{
+      "required":true
+    },
+    "RAILS_ENV":{
+      "required":true
+    },
+    "RAILS_SERVE_STATIC_FILES":{
+      "required":true
+    },
+    "SECRET_KEY_BASE":{
+      "required":true
+    }
+  },
+  "addons":[
+    "mandrill",
+    "logentries",
+    "scheduler",
+    "mongolab"
+  ]
+}
