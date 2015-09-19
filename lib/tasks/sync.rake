@@ -4,7 +4,7 @@ namespace :sync do
   task :local => :backup do
     file_name = "mongodump.#{Time.now.strftime('%Y%m%d')}"
     app_name = "#{ENV['MONGO_DATABASE']}"
-    cmd = "mongorestore -v -h localhost " \
+    cmd = "mongorestore -v -h 127.0.0.1 " \
       "--port 27017 " \
       "--db auriga_development " \
       "--drop tmp/#{file_name}/#{app_name}"
@@ -14,7 +14,7 @@ namespace :sync do
   task :reload do |t, args|
     file_name = "mongodump.#{Time.now.strftime('%Y%m%d')}"
     app_name = "#{ENV['MONGO_DATABASE']}"
-    cmd = "mongorestore -v -h localhost " \
+    cmd = "mongorestore -v -h 127.0.0.1 " \
       "--port 27017 " \
       "--db auriga_development " \
       "--drop tmp/#{file_name}/#{app_name}"

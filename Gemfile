@@ -62,6 +62,7 @@ gem 'airbrake'
 group :production do
   gem 'puma'
   gem 'rails_12factor'
+  gem 'faker' # For generate seed
 end
 
 group :development do
