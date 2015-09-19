@@ -1,6 +1,6 @@
 language: ruby
 env:
-  - DOMAIN=.example.com APP_MAILER_FROM=me@example.com APP_MAILER_RETURN_PATH=me@example.com 
+  - DOMAIN=.example.com APP_MAILER_FROM=me@example.com APP_MAILER_RETURN_PATH=me@example.com
 gemfile:
   - gemfiles/Gemfile.rails-head
 matrix:
@@ -8,10 +8,10 @@ matrix:
     - gemfile: gemfiles/Gemfile.rails-head
   include:
     - gemfile: Gemfile
-      rvm: 2.2.2
+      rvm: 2.2.3
 services:
   - mongodb
 rvm:
-  - 2.2.2
+  - 2.2.3
   - ruby-head
 script: bundle exec rspec
