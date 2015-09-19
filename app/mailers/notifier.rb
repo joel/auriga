@@ -8,7 +8,7 @@ class Notifier < ActionMailer::Base
           parts_order: [ 'text/plain', 'text/enriched', 'text/html' ]
 
   def test_mail to
-    mail to: to, subject: subject("[VaultyPass] Test Mail #{Time.now.to_s(:number)}")
+    mail to: to, subject: subject("[Passle] Test Mail #{Time.now.to_s(:number)}")
   end
 
   private

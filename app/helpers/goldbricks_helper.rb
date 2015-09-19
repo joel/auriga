@@ -3,6 +3,7 @@ module GoldbricksHelper
   def new_goldbrick
     return current_vault.goldbricks.new if Rails.env.production?
 
+    # This code is only use under testing and developing envs...
     name = ['Facebook', 'Twitter', 'Linkedin', 'Github'].sample
     current_vault.goldbricks.new({
       name:     name,
