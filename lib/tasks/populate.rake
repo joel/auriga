@@ -12,7 +12,7 @@ namespace :db do
       puts 'Tape \'Y\' for cleaning database'
       reset = args[:reset] || $stdin.gets.chomp
 
-      if reset == 'Y'
+      if reset == 'y'
         puts 'Reset database'
         Rake::Task['db:reset'].invoke
       else
