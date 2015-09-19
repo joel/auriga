@@ -88,7 +88,10 @@ end
 group :test do
   gem 'capybara'
   gem 'launchy'
-  gem 'database_cleaner'
+  # gem 'database_cleaner', '1.5.0'
+  # https://github.com/DatabaseCleaner/database_cleaner/issues/390
+  # Update from 1.4.1 to 1.5.0 break strategy, so have to wait to the next release
+  gem 'database_cleaner', git: 'https://github.com/DatabaseCleaner/database_cleaner.git'
   gem 'selenium-webdriver'
   gem 'poltergeist'
 end

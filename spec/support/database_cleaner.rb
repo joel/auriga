@@ -1,9 +1,15 @@
 require 'database_cleaner'
 
 DatabaseCleaner.strategy = :truncation
+
 RSpec.configure do |config|
+
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do |example|
+    DatabaseCleaner.start
   end
 
   config.around(:each) do |example|
