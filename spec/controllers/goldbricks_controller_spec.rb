@@ -17,7 +17,7 @@ RSpec.describe GoldbricksController, type: :controller do
   end
 
   let(:valid_attributes)   { attributes_for(:goldbrick) }
-  let(:invalid_attributes) { valid_attributes.merge(login: nil) }
+  let(:invalid_attributes) { valid_attributes.merge(name: nil) }
   let(:valid_session)      { {} }
   let(:params)             { { format: :html } }
 

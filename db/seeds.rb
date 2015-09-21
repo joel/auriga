@@ -6,8 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-puts("Create subdomain demo")
-vault = Vault.create!({ subdomain: 'demo' })
+vault = nil
+if (request = Vault.where({subdomain: 'demo'})).exists?
+  puts("Subdomain demo already exists")
+  vault = request.first
+else
+  puts("Create subdomain demo")
+  vault = Vault.create!({ subdomain: 'demo' })
+end
 
 Mongoid::Multitenancy.with_tenant(vault) do
   puts("Create user John Doe john@passle.eu")
