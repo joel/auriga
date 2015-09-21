@@ -1,0 +1,36 @@
+---
+fr:
+  helpers:
+    submit:
+      vault:
+        create: "Ajouter votre sous domaine"
+        update: "Changer votre sous domaine"
+  simple_form:
+    hints:
+      vault:
+        subdomain: "Sous domaine"
+    helpers:
+      submit:
+        vault:
+          create: "Ajouter votre sous domain"
+          update: "Sauvegarder les changements"
+    labels:
+      vault:
+        subdomain: "Sous domaine"
+    placeholders:
+      vault:
+        subdomain: "Sous domaine"
+  mongoid:
+    models:
+      vault: domaine
+    attributes:
+      vault:
+        subdomain: domaine
+    errors:
+      models:
+        vault:
+          attributes:
+            subdomain:
+              format: "Seulement majuscule et minuscule"
+              length: "Dépasse les 32 caractères autorisées"
+              exclusion: "n'est pas disponible"

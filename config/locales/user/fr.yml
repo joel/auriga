@@ -1,0 +1,10 @@
+---
+fr:
+  controller:
+    user:
+      update:
+        success: "Utilisateur mise a jour"
+      create:
+        success: "Utilisateur crée"
+      destroy:
+        success: "Utilisateur détruit"

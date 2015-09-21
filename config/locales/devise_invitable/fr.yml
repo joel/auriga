@@ -1,0 +1,25 @@
+---
+fr:
+  devise:
+    failure:
+      invited: "Vous avez un mail d'invitation en attente de confirmation, acceptez là pour valider votre compte"
+    invitations:
+      send_instructions: "Une invitation vous a été envoyée par mail à %{email}"
+      invitation_token_invalid: "L'invitation n'est pas valide"
+      updated: "Votre mot de passe a été défini. Vous êtes authentifié"
+      updated_not_active: "Votre mot de passe a été enregistré"
+      no_invitations_remaining: "Il ne vous reste plus d'invitations"
+      invitation_removed: "Votre invitation a été supprimée"
+      new:
+        header: "Envoyée inviation"
+        submit_button: "Envoyée une invitation"
+      edit:
+        header: "Définir votre mot de passe"
+        submit_button: "Définir mon mot de passe"
+    mailer:
+      invitation_instructions:
+        subject: "Invitation instructions"
+        hello: "Bonjour %{email}"
+        someone_invited_you: "Quelqu'un vous a invité %{url}, vous pouvez acceptez en cliquant sur le lien."
+        accept: "Accepter l'invitation"
+        ignore: "Si vous ne souhaitez pas accepter cette invitation vous pouvez l'ignorer, cependant votre compte ne sera crée et activé qu'une fois l'invitation acceptée."

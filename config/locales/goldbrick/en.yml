@@ -3,26 +3,24 @@ en:
   controller:
     goldbricks:
       update:
-        success: 'Goldbrick was successfully updated.'
+        success: "Goldbrick was successfully updated."
       create:
-        success: 'Goldbrick was successfully created.'
+        success: "Goldbrick was successfully created."
       destroy:
-        success: 'Goldbrick was successfully destroy.'
-
+        success: "Goldbrick was successfully destroy."
   helpers:
     submit:
       goldbrick:
         create: "Add new access"
         update: "Save Changes"
-
   simple_form:
     hints:
       goldbrick:
-        name:     Name
-        link:     Link
-        login:    Login
+        name: Name
+        link: Link
+        login: Login
         password: Password
-        content:  Content
+        content: Content
         security: Security
     helpers:
       submit:
@@ -31,24 +29,23 @@ en:
           update: "Save Changes"
     labels:
       goldbrick:
-        name:     Name
-        link:     Link
-        login:    Login
+        name: Name
+        link: Link
+        login: Login
         password: Password
-        content:  Content
+        content: Content
         security: Security
     placeholders:
       goldbrick:
         subdomain: Subdomain
-
   mongoid:
     models:
       goldbrick: Goldbrick
     attributes:
       goldbrick:
-        name:     Name
-        link:     Link
-        login:    Login
+        name: Name
+        link: Link
+        login: Login
         password: Password
-        content:  Content
+        content: Content
         security: Security

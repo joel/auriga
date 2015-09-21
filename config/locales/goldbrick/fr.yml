@@ -1,0 +1,51 @@
+---
+fr:
+  controller:
+    goldbricks:
+      update:
+        success: "Entrée mise à jour"
+      create:
+        success: "Entrée créée"
+      destroy:
+        success: "Entrée détruite"
+  helpers:
+    submit:
+      goldbrick:
+        create: "Ajouter une nouvel accès"
+        update: Sauvegarder
+  simple_form:
+    hints:
+      goldbrick:
+        name: Nom
+        link: Lien
+        login: Identifiant
+        password: "Mot de passe"
+        content: Description
+        security: Sécurité
+    helpers:
+      submit:
+        goldbrick:
+          create: "Ajouter un accès"
+          update: Sauvegarder
+    labels:
+      goldbrick:
+        name: Nom
+        link: Lien
+        login: Identifiant
+        password: "Mot de passe"
+        content: Description
+        security: Sécurité
+    placeholders:
+      goldbrick:
+        subdomain: Domaine
+  mongoid:
+    models:
+      goldbrick: Entrée
+    attributes:
+      goldbrick:
+        name: Nom
+        link: Lien
+        login: Identifiant
+        password: "Mot de passe"
+        content: Description
+        security: Sécurité
