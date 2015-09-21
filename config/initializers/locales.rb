@@ -1,0 +1,1 @@
+LocalesController.send(:include, LocalesControllerCallbacks)

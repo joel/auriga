@@ -17,7 +17,7 @@ gem 'jquery-rails'
 
 # Helpers
 # gem 'i18n_helper', path: '../../Gems/i18n_helper'
-gem 'i18n_helper', '>= 0.0.3'
+gem 'i18n_helper', '>= 0.0.4'
 gem 'rails-i18n'
 
 # Views
