@@ -5,7 +5,6 @@ en:
       vault:
         create: "Add your subdomain"
         update: "Change your subdomain"
-
   simple_form:
     hints:
       vault:
@@ -21,13 +20,12 @@ en:
     placeholders:
       vault:
         subdomain: Subdomain
-
   mongoid:
     models:
       vault: Vault
     attributes:
       vault:
-       subdomain: Subdomain
+        subdomain: Subdomain
     errors:
       models:
         vault:

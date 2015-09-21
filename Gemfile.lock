@@ -137,9 +137,9 @@ GEM
     i18n-language-translations (0.0.2)
       i18n (~> 0.5)
       railties (>= 3.0.0)
-    i18n_helper (0.0.3)
+    i18n_helper (0.0.4)
       i18n-language-translations (~> 0.0)
-      rails (~> 4.1)
+      rails (~> 4.2)
     interactor (3.1.0)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
@@ -356,7 +356,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
-  i18n_helper (>= 0.0.3)
+  i18n_helper (>= 0.0.4)
   interactor
   jquery-rails
   launchy

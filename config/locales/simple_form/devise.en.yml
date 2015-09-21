@@ -1,6 +1,0 @@
-en:
- devise:
-  passwords:
-    edit:
-      new_password: "New password"
-      confirm_new_password: "Confirm your new password"

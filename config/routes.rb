@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'vaults#index'
 
-  post 'themes/:theme' => 'themes#setting', as: :set_theme
+  patch 'themes/:theme' => 'themes#setting', as: :set_theme
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

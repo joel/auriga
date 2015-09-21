@@ -1,0 +1,7 @@
+---
+fr:
+  devise:
+    passwords:
+      edit:
+        new_password: "Nouveau mot de passe"
+        confirm_new_password: "Confirmer votre nouveau mot de passe"

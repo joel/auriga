@@ -1,0 +1,17 @@
+---
+fr:
+  app:
+    name: Auriga
+  home:
+    title: Passle.eu
+    content: "La solution la plus simple pour garder vos mot de passe toujours avec vous !"
+    demo: "Essayez la démo"
+  exception:
+    forbidden: "Vous n'êtes pas autorisé a faire ça"
+  helpers:
+    links:
+      cancel: Annuler
+      edit: Éditer
+      destroy: Détruire
+    submit:
+      all: Valider

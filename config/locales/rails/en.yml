@@ -2,4 +2,4 @@
 en:
   errors:
     messages:
-      not_saved: Not Saved
+      not_saved: "Not Saved"

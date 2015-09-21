@@ -1,0 +1,5 @@
+---
+fr:
+  errors:
+    messages:
+      not_saved: "N'a pas été sauvegardé"
