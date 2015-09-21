@@ -9,9 +9,8 @@ class Goldbrick
   field :content,   type: String
   field :security,  type: Integer, default: 0 # (0..5)
 
-  validates :vault, :login, presence: true
+  validates :vault, :name, presence: true
   validates_associated :vault
-  validates_uniqueness_of :login, case_sensitive: true, allow_blank: false
 
   belongs_to :vault
 
