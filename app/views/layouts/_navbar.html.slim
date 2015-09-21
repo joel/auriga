@@ -15,8 +15,9 @@
               = t('helpers.links.account')
               b.caret
             ul.dropdown-menu
-              li= link_to current_user.email, user_url(current_user, subdomain: current_user.vault.subdomain)
-              li= link_to t('.invitation'), new_invitation_url(:user, subdomain: current_user.vault.subdomain)
+              - subdomain = current_user.vault ? current_user.vault.subdomain : 'www'
+              li= link_to current_user.email, user_url(current_user, subdomain: subdomain)
+              li= link_to t('.invitation'), new_invitation_url(:user, subdomain: subdomain)
               li= link_to t('devise.shared.sign_out'), destroy_user_session_path, method: :delete
       ul.nav.navbar-nav.navbar-right
         / li.dropdown
