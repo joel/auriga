@@ -27,7 +27,6 @@ fr:
     hints:
       defaults:
         username: Identifiant
-        password: "Pas de caractères spéciaux"
     helpers:
       submit:
         create: "Ajouter %{model}"

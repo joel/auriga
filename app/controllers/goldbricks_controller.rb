@@ -59,7 +59,7 @@ class GoldbricksController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to goldbricks_url, notice: I18n.t('controllers.goldbrick.destroy.success') # 'Goldbrick was successfully destroyed.'
+        redirect_to goldbricks_url, notice: I18n.t('controller.goldbricks.destroy.success') # 'Goldbrick was successfully destroyed.'
       end
       format.json { render nothing: true, status: 200 }
       format.js {}

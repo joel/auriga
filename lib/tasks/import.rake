@@ -22,7 +22,7 @@ namespace :import do
 
       Vault.destroy_all
 
-      data = YAML.load(File.open('data.yml').read)
+      data = YAML.load(File.open('commands/data.yml').read)
 
       data[:data][:vaults].each do |vault_params|
         vault = Vault.create!({ subdomain: vault_params[:subdomain] })

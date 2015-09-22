@@ -10,8 +10,12 @@ en:
     forbidden: "You are not authorized to perform that action."
   helpers:
     links:
+      account: Account
       cancel: Cancel
       edit: Edit
       destroy: Destroy
     submit:
       all: Validate
+  layouts:
+    navbar:
+      invitation: Invitation

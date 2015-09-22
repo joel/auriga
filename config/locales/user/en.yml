@@ -1,10 +1,15 @@
 ---
 en:
   controller:
-    user:
+    users:
       update:
         success: "User was successfully updated."
       create:
         success: "User was successfully created."
       destroy:
         success: "User was successfully destroy."
+  users:
+    show:
+      others:
+        one: 'other'
+        other: "%{count} others"
