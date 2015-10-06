@@ -15,6 +15,8 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'active_model_serializers'
+
 # Helpers
 # gem 'i18n_helper', path: '../../Gems/i18n_helper'
 gem 'i18n_helper', '>= 0.0.4'

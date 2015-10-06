@@ -12,13 +12,20 @@ Rails.application.routes.draw do
 
   get 'demo' => 'demo#fake_sign_in'
 
+  patch 'themes/:theme' => 'themes#setting', as: :set_theme
+
+  namespace :api do
+    get 'users' => 'users#index'
+  end
+
+  root controller: 'home', action: 'index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'vaults#index'
 
-  patch 'themes/:theme' => 'themes#setting', as: :set_theme
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -68,5 +75,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root controller: 'home', action: 'index'
+  # root controller: 'home', action: 'index'
 end
